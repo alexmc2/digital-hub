@@ -17,6 +17,3 @@ use App\Http\Controllers\ExampleController;
 Route::get('/', [ExampleController::class, 'homepage']); // This is the home page
 
 Route::get('/about', [ExampleController::class, 'about']); // This is the about page
-
-
-

@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>OurApp</title>
+    <title>Digital Hub</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
     <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"
@@ -21,7 +21,10 @@
 <body>
     <header class="header-bar mb-3">
         <div class="container d-flex flex-column flex-md-row align-items-center p-3">
-            <h4 class="my-0 mr-md-auto font-weight-normal"><a href="/" class="text-white">Digital News Hub</a>
+
+
+            <h4 class="my-0 mr-md-auto font-weight-bold" style="font-size:4em"><a href="/" class="text-white">DIGITAL
+                NEWS HUB</a>
             </h4>
             <form action="#" method="POST" class="mb-0 pt-2 pt-md-0">
                 <div class="row align-items-center">
