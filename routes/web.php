@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +15,13 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', [UserController::class, "showCorrectHomepage"]);
+// User related routes
+Route::get('/', [UserController::class, "showCorrectHomepage"])->name('login');
+Route::post('/register', [UserController::class, 'register'])->middleware('guest');
+Route::post('/login', [UserController::class, 'login'])->middleware('guest');
+Route::post('/logout', [UserController::class, 'logout'])->middleware('mustBeLoggedIn');
 
-
-Route::post('/register', [UserController::class, 'register']);
-Route::post('/login', [UserController::class, 'login']);
-Route::post('/logout', [UserController::class, 'logout']);
+// Blog post related routes
+Route::get('/create-post', [PostController::class, 'showCreateForm'])->middleware('mustBeLoggedIn');
+Route::post('/create-post', [PostController::class, 'storeNewPost'])->middleware('mustBeLoggedIn');
+Route::get('/post/{post}', [PostController::class, 'viewSinglePost']);
