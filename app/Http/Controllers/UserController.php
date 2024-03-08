@@ -8,6 +8,11 @@ use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
+    public function profile(User $user)
+    {
+        return view('profile-posts', ['username' => $user->username, 'posts' => $user->posts()->latest()->get(), 'postCount' => $user->posts()->count()]);
+    }
+
     public function logout()
     {
         auth()->logout();
@@ -43,7 +48,7 @@ class UserController extends Controller
         $incomingFields = $request->validate([
             'username' => ['required', 'min:3', 'max:20', Rule::unique('users', 'username')],
             'email' => ['required', 'email', Rule::unique('users', 'email')],
-            'password' => ['required', 'min:4', 'confirmed']
+            'password' => ['required', 'min:8', 'confirmed']
         ]);
 
         $incomingFields['password'] = bcrypt($incomingFields['password']);
