@@ -21,14 +21,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet" />
-    <link rel="stylesheet" href="/main.css" />
+    @vite(['resources/css/app.css'])
+    @vite(['resources/js/app.js'])
 </head>
 
 <body>
     <header class="header-bar mb-3">
         <div class="container d-flex flex-column flex-md-row align-items-center p-3">
-            <h4 class="my-0 mr-md-auto font-weight-normal"><a href="/" class="text-white">DIGITAL NEWS HUB</a>
-            </h4>
+            <h4 class="my-0 mr-md-auto font-weight-normal"><a href="/" class="text-white">DIGITAL NEWS HUB</a></h4>
 
             @auth
                 <div class="flex-row my-3 my-md-0">
@@ -89,8 +89,7 @@
 
     <!-- footer begins -->
     <footer class="border-top text-center small text-muted py-3">
-        <p class="m-0">Copyright &copy; {{ date('Y') }} <a href="/" class="text-muted">DIGITAL NEWS
-                HUB</a>. All
+        <p class="m-0">Copyright &copy; {{ date('Y') }} <a href="/" class="text-muted">DIGITAL NEWS HUB</a>. All
             rights reserved.</p>
     </footer>
 
