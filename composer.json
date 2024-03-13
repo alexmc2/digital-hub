@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "cloudinary/cloudinary_php": "^2.13",
         "guzzlehttp/guzzle": "^7.2",
         "intervention/image": "2.7.*",
         "laravel/framework": "^10.10",

@@ -11,13 +11,16 @@ class Post extends Model
     use Searchable;
     use HasFactory;
 
-    protected $fillable = ['title', 'body', 'user_id'];
+    // Include 'image' and 'topic' in the $fillable property
+    protected $fillable = ['title', 'body', 'user_id', 'image', 'topic'];
 
     public function toSearchableArray()
     {
+
         return [
             'title' => $this->title,
-            'body' => $this->body
+            'body' => $this->body,
+            'topic' => $this->topic,
         ];
     }
 

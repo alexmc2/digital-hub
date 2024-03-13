@@ -1,6 +1,6 @@
 <x-layout doctitle="Create New Post">
     <div class="container py-md-5 container--narrow">
-        <form action="/create-post" method="POST">
+        <form action="/create-post" method="POST" enctype="multipart/form-data"> <!-- Add enctype attribute -->
             @csrf
             <div class="form-group">
                 <label for="post-title" class="text-muted mb-1"><small>Title</small></label>
@@ -16,6 +16,15 @@
                 <label for="post-body" class="text-muted mb-1"><small>Body Content</small></label>
                 <textarea name="body" id="post-body" class="body-content tall-textarea form-control" type="text">{{ old('body') }}</textarea>
                 @error('body')
+                    <p class="m-0 small alert alert-danger shadow-sm">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <!-- Image upload input -->
+            <div class="form-group">
+                <label for="post-image" class="text-muted mb-1"><small>Image (optional)</small></label>
+                <input type="file" name="image" id="post-image" class="form-control">
+                @error('image')
                     <p class="m-0 small alert alert-danger shadow-sm">{{ $message }}</p>
                 @enderror
             </div>
