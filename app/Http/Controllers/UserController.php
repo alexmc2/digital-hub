@@ -92,14 +92,14 @@ class UserController extends Controller
         return redirect('/')->with('success', 'You are now logged out.');
     }
 
-    public function showCorrectHomepage()
-    {
-        if (auth()->check()) {
-            return view('homepage-feed', ['posts' => auth()->user()->feedPosts()->latest()->paginate(4)]);
-        } else {
-            return view('homepage');
-        }
-    }
+    // public function showCorrectHomepage()
+    // {
+    //     if (auth()->check()) {
+    //         return view('homepage-feed', ['posts' => auth()->user()->feedPosts()->latest()->paginate(4)]);
+    //     } else {
+    //         return view('homepage');
+    //     }
+    // }
 
 
 
