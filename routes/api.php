@@ -17,43 +17,11 @@ use App\Http\Controllers\FollowController;
 |
 */
 
-/* cors origin  */
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept,Authorization ");
-header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, PATCH, DELETE");
-
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
-// Route::post('/login', [UserController::class, 'loginApi']);
 
 
-// Route::post('/create-post', [PostController::class, 'storeNewPostApi'])->middleware('auth:sanctum');
-// Route::get('/post/{post}', [PostController::class, 'viewSinglePostApi'])->middleware('auth:sanctum');
-// Route::put('/post/{post}', [PostController::class, 'updatePostApi'])->middleware('auth:sanctum', 'can:update,post');
-// Route::delete('/delete-post/{post}', [PostController::class, 'deleteApi'])->middleware('auth:sanctum', 'can:delete,post');
-
-// Route::get('/search/{term}', [PostController::class, 'searchApi'])->middleware('auth:sanctum');
-
-// Route::get('/profile/{user:username}/followers', [UserController::class, 'profileFollowersApi'])->middleware('auth:sanctum');
-// Route::get('/profile/{user:username}/following', [UserController::class, 'profileFollowingApi'])->middleware('auth:sanctum');
-// Route::get('/profile/{user:username}', [UserController::class, 'profileApi'])->middleware('auth:sanctum');
-
-// Route::post('/register', [UserController::class, 'registerApi'])->middleware('guest');
-// Route::post('/login', [UserController::class, 'loginApi'])->middleware('guest');
-// Route::post('/logout', [UserController::class, 'logoutApi'])->middleware('auth:sanctum');
-// Route::post('/manage-avatar', [UserController::class, 'storeAvatarApi'])->middleware('auth:sanctum');
-
-
-// Route::post('/create-follow/{user:username}', [FollowController::class, 'createFollowApi'])->middleware('auth:sanctum');
-// Route::post('/remove-follow/{user:username}', [FollowController::class, 'removeFollowApi'])->middleware('auth:sanctum');
-
-
-
-
-
-
+Route::get('/test', function () {
+    return response()->json(['message' => 'API is working']);
+});
 
 // Publicly accessible routes
 Route::get('/posts/popular', [PostController::class, 'showPopularPosts']);
