@@ -195,8 +195,9 @@ class UserController extends Controller
 
     public function profileApi(User $user)
     {
-        return new UserResource($user->load(['posts', 'followers', 'following']));
+        return new UserResource($user->load(['posts', 'followers', 'followingTheseUsers']));
     }
+
 
     public function profileFollowersApi(User $user)
     {
