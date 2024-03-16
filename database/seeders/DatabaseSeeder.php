@@ -23,6 +23,13 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('qwertyqwerty'),
             'isAdmin' => 1
         ]);
+        DB::table('users')->insert([
+            'id' => 400,
+            'username' => 'alex',
+            'email' => 'brad@local',
+            'password' => Hash::make('44904490'),
+            'isAdmin' => 1
+        ]);
 
         DB::table('users')->insert([
             'id' => 200,
