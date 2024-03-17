@@ -190,4 +190,11 @@ class PostController extends Controller
 
         return PostResource::collection($posts);
     }
+
+    public function index()
+    {
+        $posts = Post::with('user:id,username,avatar')->get(); // Retrieve all posts
+
+        return PostResource::collection($posts);
+    }
 }

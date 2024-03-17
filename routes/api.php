@@ -24,6 +24,8 @@ Route::get('/test', function () {
 });
 
 // Publicly accessible routes
+Route::get('/', [PostController::class, 'index']);
+Route::get('/posts', [PostController::class, 'showAllPosts']);
 Route::get('/posts/popular', [PostController::class, 'showPopularPosts']);
 Route::get('/posts/newest', [PostController::class, 'showNewestPosts']);
 Route::get('/posts/topic/{topicName}', [PostController::class, 'showPostsByTopic']);
