@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Follow;
+use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Log;
@@ -15,9 +16,9 @@ use Illuminate\Support\Facades\View;
 use Intervention\Image\Facades\Image;
 use App\Http\Resources\FollowResource;
 use Illuminate\Support\Facades\Storage;
+use Laravel\Sanctum\PersonalAccessToken;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpFoundation\Response;
-use Laravel\Sanctum\PersonalAccessToken;
 
 
 
@@ -163,51 +164,59 @@ class UserController extends Controller
 
         return new UserResource($user);
     }
-    public function loginApi(Request $request)
-    {
-        Log::info('Login API called', ['request' => $request->all()]);
+    // public function loginApi(Request $request)
+    // {
+    //     Log::info('Login API called', ['request' => $request->all()]);
 
-        $incomingFields = $request->validate([
-            'username' => 'required',
-            'password' => 'required'
-        ]);
+    //     $incomingFields = $request->validate([
+    //         'username' => 'required',
+    //         'password' => 'required'
+    //     ]);
 
-        if (auth()->attempt($incomingFields)) {
-            $user = User::where('username', $incomingFields['username'])->firstOrFail();
-            $token = $user->createToken('ourapptoken')->plainTextToken;
+    //     if (auth()->attempt($incomingFields)) {
+    //         $user = User::where('username', $incomingFields['username'])->firstOrFail();
+    //         $token = $user->createToken('ourapptoken')->plainTextToken;
 
-            Log::info('Login successful', ['username' => $incomingFields['username']]);
+    //         Log::info('Login successful', ['username' => $incomingFields['username']]);
 
-            return response()->json(['token' => $token, 'user' => new UserResource($user)]);
-        }
+    //         return response()->json(['token' => $token, 'user' => new UserResource($user)]);
+    //     }
 
-        Log::warning('Login failed', ['username' => $incomingFields['username']]);
+    //     Log::warning('Login failed', ['username' => $incomingFields['username']]);
 
-        return response()->json(['message' => 'Unauthorized'], 401);
-    }
+    //     return response()->json(['message' => 'Unauthorized'], 401);
+    // }
 
 
-    public function registerApi(Request $request)
-    {
-        Log::info('Register API called', ['request' => $request->all()]);
 
-        $request->validate([
-            'username' => ['required', 'min:3', 'max:20', Rule::unique('users', 'username')],
-            'email' => ['required', 'email', Rule::unique('users', 'email')],
-            'password' => ['required', 'min:4', 'confirmed'],
-        ]);
+    // public function registerApi(Request $request)
+    // {
+    //     Log::info('Register API: Starting registration process');
 
-        $incomingFields = $request->only(['username', 'email', 'password']);
-        $incomingFields['password'] = bcrypt($incomingFields['password']);
+    //     $validatedData = $request->validate([
+    //         'username' => ['required', 'min:3', 'max:20', Rule::unique('users', 'username')],
+    //         'email' => ['required', 'email', Rule::unique('users', 'email')],
+    //         'password' => ['required', 'min:4', 'confirmed'],
+    //     ]);
 
-        $user = User::create($incomingFields);
+    //     Log::info('Register API: Validation passed');
 
-        $token = $user->createToken('ourapptoken')->plainTextToken;
+    //     // For simplicity, let's log the validated data except the password
+    //     Log::info('Register API: Validated data', ['data' => Arr::except($validatedData, ['password'])]);
 
-        Log::info('User registered successfully', ['user_id' => $user->id]);
+    //     $validatedData['password'] = bcrypt($validatedData['password']);
 
-        return response()->json(['message' => 'User registered successfully', 'token' => $token, 'user' => new UserResource($user)], 201);
-    }
+    //     $user = User::create($validatedData);
+
+    //     Log::info('Register API: User created', ['user_id' => $user->id]);
+
+    //     $token = $user->createToken('ourapptoken')->plainTextToken;
+
+    //     Log::info('Register API: Token created', ['token' => $token]);
+
+    //     return response()->json(['message' => 'User registered successfully', 'token' => $token, 'user' => new UserResource($user)], 201);
+    // }
+
 
 
     public function profileApi(User $user)

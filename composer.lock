@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2dfc60bfcbdca15ccc27b2503dfd07dc",
+    "content-hash": "aab9980520c1b36ffc9793be10516aac",
     "packages": [
         {
             "name": "brick/math",
@@ -1256,17 +1256,87 @@
             "time": "2022-05-21T17:30:32+00:00"
         },
         {
-            "name": "laravel/framework",
-            "version": "v10.48.2",
+            "name": "kitloong/laravel-app-logger",
+            "version": "v1.2.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/laravel/framework.git",
-                "reference": "32a8bb151d748b579c3794dea53b56bd40dfbbd3"
+                "url": "https://github.com/kitloong/laravel-app-logger.git",
+                "reference": "824a7836b4a343780290bfbba138e917b0546f52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/32a8bb151d748b579c3794dea53b56bd40dfbbd3",
-                "reference": "32a8bb151d748b579c3794dea53b56bd40dfbbd3",
+                "url": "https://api.github.com/repos/kitloong/laravel-app-logger/zipball/824a7836b4a343780290bfbba138e917b0546f52",
+                "reference": "824a7836b4a343780290bfbba138e917b0546f52",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "illuminate/support": "^5.8|^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
+                "php": ">=7.1.3",
+                "spatie/laravel-http-logger": "^1.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.17|^3.0",
+                "mockery/mockery": "^1.0",
+                "orchestra/testbench": "^3.8|^4.0|^5.0|^6.0|^7.0|^8.0|^9.0",
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "KitLoong\\AppLogger\\AppLoggerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "KitLoong\\AppLogger\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kit Loong",
+                    "email": "kitloong1008@gmail.com"
+                }
+            ],
+            "description": "Laravel log for your application",
+            "homepage": "https://github.com/kitloong/laravel-app-logger",
+            "keywords": [
+                "laravel",
+                "log",
+                "performance",
+                "query",
+                "request"
+            ],
+            "support": {
+                "issues": "https://github.com/kitloong/laravel-app-logger/issues",
+                "source": "https://github.com/kitloong/laravel-app-logger/tree/v1.2.2"
+            },
+            "funding": [
+                {
+                    "url": "https://www.buymeacoffee.com/kitloong",
+                    "type": "custom"
+                }
+            ],
+            "time": "2024-03-03T16:10:36+00:00"
+        },
+        {
+            "name": "laravel/framework",
+            "version": "v10.48.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "5791c052b41c6b593556adc687076bfbdd13c501"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/5791c052b41c6b593556adc687076bfbdd13c501",
+                "reference": "5791c052b41c6b593556adc687076bfbdd13c501",
                 "shasum": ""
             },
             "require": {
@@ -1460,7 +1530,85 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2024-03-12T16:35:43+00:00"
+            "time": "2024-03-15T10:17:07+00:00"
+        },
+        {
+            "name": "laravel/horizon",
+            "version": "v5.23.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/horizon.git",
+                "reference": "7475de7eb5b465c2da84218002fe1a62b8175da0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/horizon/zipball/7475de7eb5b465c2da84218002fe1a62b8175da0",
+                "reference": "7475de7eb5b465c2da84218002fe1a62b8175da0",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-pcntl": "*",
+                "ext-posix": "*",
+                "illuminate/contracts": "^9.21|^10.0|^11.0",
+                "illuminate/queue": "^9.21|^10.0|^11.0",
+                "illuminate/support": "^9.21|^10.0|^11.0",
+                "nesbot/carbon": "^2.17|^3.0",
+                "php": "^8.0",
+                "ramsey/uuid": "^4.0",
+                "symfony/error-handler": "^6.0|^7.0",
+                "symfony/process": "^6.0|^7.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "orchestra/testbench": "^7.0|^8.0|^9.0",
+                "phpstan/phpstan": "^1.10",
+                "phpunit/phpunit": "^9.0|^10.4",
+                "predis/predis": "^1.1|^2.0"
+            },
+            "suggest": {
+                "ext-redis": "Required to use the Redis PHP driver.",
+                "predis/predis": "Required when not using the Redis PHP driver (^1.1|^2.0)."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Horizon\\HorizonServiceProvider"
+                    ],
+                    "aliases": {
+                        "Horizon": "Laravel\\Horizon\\Horizon"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Horizon\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Dashboard and code-driven configuration for Laravel queues.",
+            "keywords": [
+                "laravel",
+                "queue"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel/horizon/issues",
+                "source": "https://github.com/laravel/horizon/tree/v5.23.1"
+            },
+            "time": "2024-02-20T15:14:10+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -1723,6 +1871,77 @@
             "time": "2023-11-08T14:08:06+00:00"
         },
         {
+            "name": "laravel/telescope",
+            "version": "v4.17.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/telescope.git",
+                "reference": "2d453dc629b27e8cf39fb1217aba062f8c54e690"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/telescope/zipball/2d453dc629b27e8cf39fb1217aba062f8c54e690",
+                "reference": "2d453dc629b27e8cf39fb1217aba062f8c54e690",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "laravel/framework": "^8.37|^9.0|^10.0",
+                "php": "^8.0",
+                "symfony/var-dumper": "^5.0|^6.0"
+            },
+            "require-dev": {
+                "ext-gd": "*",
+                "guzzlehttp/guzzle": "^6.0|^7.0",
+                "laravel/octane": "^1.4",
+                "orchestra/testbench": "^6.0|^7.0|^8.0",
+                "phpstan/phpstan": "^1.10",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Telescope\\TelescopeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Telescope\\": "src/",
+                    "Laravel\\Telescope\\Database\\Factories\\": "database/factories/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                },
+                {
+                    "name": "Mohamed Said",
+                    "email": "mohamed@laravel.com"
+                }
+            ],
+            "description": "An elegant debug assistant for the Laravel framework.",
+            "keywords": [
+                "debugging",
+                "laravel",
+                "monitoring"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel/telescope/issues",
+                "source": "https://github.com/laravel/telescope/tree/v4.17.6"
+            },
+            "time": "2024-02-08T15:04:38+00:00"
+        },
+        {
             "name": "laravel/tinker",
             "version": "v2.9.0",
             "source": {
@@ -1978,16 +2197,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "3.25.0",
+            "version": "3.25.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "4c44347133618cccd9b3df1729647a1577b4ad99"
+                "reference": "abbd664eb4381102c559d358420989f835208f18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/4c44347133618cccd9b3df1729647a1577b4ad99",
-                "reference": "4c44347133618cccd9b3df1729647a1577b4ad99",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/abbd664eb4381102c559d358420989f835208f18",
+                "reference": "abbd664eb4381102c559d358420989f835208f18",
                 "shasum": ""
             },
             "require": {
@@ -2052,7 +2271,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/3.25.0"
+                "source": "https://github.com/thephpleague/flysystem/tree/3.25.1"
             },
             "funding": [
                 {
@@ -2064,20 +2283,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-03-09T17:06:45+00:00"
+            "time": "2024-03-16T12:53:19+00:00"
         },
         {
             "name": "league/flysystem-local",
-            "version": "3.23.1",
+            "version": "3.25.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem-local.git",
-                "reference": "b884d2bf9b53bb4804a56d2df4902bb51e253f00"
+                "reference": "61a6a90d6e999e4ddd9ce5adb356de0939060b92"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem-local/zipball/b884d2bf9b53bb4804a56d2df4902bb51e253f00",
-                "reference": "b884d2bf9b53bb4804a56d2df4902bb51e253f00",
+                "url": "https://api.github.com/repos/thephpleague/flysystem-local/zipball/61a6a90d6e999e4ddd9ce5adb356de0939060b92",
+                "reference": "61a6a90d6e999e4ddd9ce5adb356de0939060b92",
                 "shasum": ""
             },
             "require": {
@@ -2111,8 +2330,7 @@
                 "local"
             ],
             "support": {
-                "issues": "https://github.com/thephpleague/flysystem-local/issues",
-                "source": "https://github.com/thephpleague/flysystem-local/tree/3.23.1"
+                "source": "https://github.com/thephpleague/flysystem-local/tree/3.25.1"
             },
             "funding": [
                 {
@@ -2124,7 +2342,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-01-26T18:25:23+00:00"
+            "time": "2024-03-15T19:58:44+00:00"
         },
         {
             "name": "league/mime-type-detection",
@@ -3171,16 +3389,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.12.0",
+            "version": "v0.12.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "750bf031a48fd07c673dbe3f11f72362ea306d0d"
+                "reference": "9185c66c2165bbf4d71de78a69dccf4974f9538d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/750bf031a48fd07c673dbe3f11f72362ea306d0d",
-                "reference": "750bf031a48fd07c673dbe3f11f72362ea306d0d",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/9185c66c2165bbf4d71de78a69dccf4974f9538d",
+                "reference": "9185c66c2165bbf4d71de78a69dccf4974f9538d",
                 "shasum": ""
             },
             "require": {
@@ -3244,9 +3462,82 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
-                "source": "https://github.com/bobthecow/psysh/tree/v0.12.0"
+                "source": "https://github.com/bobthecow/psysh/tree/v0.12.2"
             },
-            "time": "2023-12-20T15:28:09+00:00"
+            "time": "2024-03-17T01:53:00+00:00"
+        },
+        {
+            "name": "rakutentech/laravel-request-docs",
+            "version": "v2.33",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rakutentech/laravel-request-docs.git",
+                "reference": "3cf4d358d89a0589caf5bbacf652b61096be81de"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rakutentech/laravel-request-docs/zipball/3cf4d358d89a0589caf5bbacf652b61096be81de",
+                "reference": "3cf4d358d89a0589caf5bbacf652b61096be81de",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "illuminate/contracts": "^8.37|^9.0|^10.0",
+                "kitloong/laravel-app-logger": "^1.0",
+                "php": "^7.4|^8.0|^8.1|^8.2|^8.3",
+                "spatie/laravel-package-tools": "^1.4.3"
+            },
+            "require-dev": {
+                "barryvdh/laravel-ide-helper": "^2.12|dev-master",
+                "brianium/paratest": "^6.2",
+                "friendsofphp/php-cs-fixer": "^3.5",
+                "nunomaduro/collision": "^5.3|^6.0",
+                "nunomaduro/larastan": "^1.0|^2.4",
+                "orchestra/testbench": "^6.15|^7.0|^8.0",
+                "phpunit/phpunit": "^9.3",
+                "spatie/laravel-ray": "^1.23",
+                "squizlabs/php_codesniffer": "^3.6",
+                "vimeo/psalm": "^4.8|^5.6"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Rakutentech\\LaravelRequestDocs\\LaravelRequestDocsServiceProvider"
+                    ],
+                    "aliases": {
+                        "LaravelRequestDocs": "Rakutentech\\LaravelRequestDocs\\LaravelRequestDocsFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rakutentech\\LaravelRequestDocs\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pulkit Kathuria",
+                    "email": "pulkit.kathuria@rakuten.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Automatically generate Laravel docs from request rules, controllers and routes",
+            "homepage": "https://github.com/rakutentech/laravel-request-docs",
+            "keywords": [
+                "laravel",
+                "laravel-request-docs",
+                "rakutentech"
+            ],
+            "support": {
+                "issues": "https://github.com/rakutentech/laravel-request-docs/issues",
+                "source": "https://github.com/rakutentech/laravel-request-docs/tree/v2.33"
+            },
+            "time": "2024-03-12T07:50:49+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -3472,6 +3763,132 @@
                 }
             ],
             "time": "2023-11-08T05:53:05+00:00"
+        },
+        {
+            "name": "spatie/laravel-http-logger",
+            "version": "1.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-http-logger.git",
+                "reference": "96c18c32999e2e4142e157a71f51d467da29fa98"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-http-logger/zipball/96c18c32999e2e4142e157a71f51d467da29fa98",
+                "reference": "96c18c32999e2e4142e157a71f51d467da29fa98",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^8.0|^9.0|^10.0|^11.0",
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0|^7.0|^8.0|^9.0",
+                "pestphp/pest": "^1.22|^2.34",
+                "phpunit/phpunit": "^9.0|^10.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\HttpLogger\\HttpLoggerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\HttpLogger\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brent Roose",
+                    "email": "brent@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Laravel package to log HTTP requests",
+            "homepage": "https://github.com/spatie/laravel-http-logger",
+            "keywords": [
+                "laravel-http-logger",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-http-logger/issues",
+                "source": "https://github.com/spatie/laravel-http-logger/tree/1.11.0"
+            },
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                }
+            ],
+            "time": "2024-03-02T05:42:55+00:00"
+        },
+        {
+            "name": "spatie/laravel-package-tools",
+            "version": "1.16.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-package-tools.git",
+                "reference": "59db18c2e20d49a0b6d447bb1c654f6c123beb9e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/59db18c2e20d49a0b6d447bb1c654f6c123beb9e",
+                "reference": "59db18c2e20d49a0b6d447bb1c654f6c123beb9e",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^9.28|^10.0|^11.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.5",
+                "orchestra/testbench": "^7.7|^8.0",
+                "pestphp/pest": "^1.22",
+                "phpunit/phpunit": "^9.5.24",
+                "spatie/pest-plugin-test-time": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\LaravelPackageTools\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Tools for creating Laravel packages",
+            "homepage": "https://github.com/spatie/laravel-package-tools",
+            "keywords": [
+                "laravel-package-tools",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-package-tools/issues",
+                "source": "https://github.com/spatie/laravel-package-tools/tree/1.16.3"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-03-07T07:35:57+00:00"
         },
         {
             "name": "symfony/console",

@@ -1,10 +1,13 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FollowController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,8 +43,14 @@ Route::get('/profile/{user:username}/following', [UserController::class, 'profil
 
 // Authentication & Registration (Guest only)
 // Route::post('/register', [UserController::class, 'registerApi'])->middleware('guest');
-Route::post('/register', [UserController::class, 'registerApi']);
-Route::post('/login', [UserController::class, 'loginApi'])->middleware('guest');
+// Route::post('/register', [UserController::class, 'registerApi']);
+// Route::post('/login', [UserController::class, 'loginApi'])->middleware('guest');
+
+
+
+Route::post('login', [LoginController::class, 'loginApi']);
+Route::post('register', RegisterController::class);
+
 
 // Protected routes requiring authentication
 Route::middleware('auth:sanctum')->group(function () {
