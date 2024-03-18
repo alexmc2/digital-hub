@@ -39,7 +39,8 @@ Route::get('/profile/{user:username}/followers', [UserController::class, 'profil
 Route::get('/profile/{user:username}/following', [UserController::class, 'profileFollowingApi']); // Viewing who the user is following
 
 // Authentication & Registration (Guest only)
-Route::post('/register', [UserController::class, 'registerApi'])->middleware('guest');
+// Route::post('/register', [UserController::class, 'registerApi'])->middleware('guest');
+Route::post('/register', [UserController::class, 'registerApi']);
 Route::post('/login', [UserController::class, 'loginApi'])->middleware('guest');
 
 // Protected routes requiring authentication

@@ -2,16 +2,24 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\User;
 use App\Models\Follow;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Log;
 use App\Http\Resources\UserResource;
 use Cloudinary\Api\Upload\UploadApi;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\View;
 use Intervention\Image\Facades\Image;
 use App\Http\Resources\FollowResource;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpFoundation\Response;
+use Laravel\Sanctum\PersonalAccessToken;
+
+
 
 class UserController extends Controller
 {
@@ -155,13 +163,38 @@ class UserController extends Controller
 
         return new UserResource($user);
     }
+    public function loginApi(Request $request)
+    {
+        Log::info('Login API called', ['request' => $request->all()]);
+
+        $incomingFields = $request->validate([
+            'username' => 'required',
+            'password' => 'required'
+        ]);
+
+        if (auth()->attempt($incomingFields)) {
+            $user = User::where('username', $incomingFields['username'])->firstOrFail();
+            $token = $user->createToken('ourapptoken')->plainTextToken;
+
+            Log::info('Login successful', ['username' => $incomingFields['username']]);
+
+            return response()->json(['token' => $token, 'user' => new UserResource($user)]);
+        }
+
+        Log::warning('Login failed', ['username' => $incomingFields['username']]);
+
+        return response()->json(['message' => 'Unauthorized'], 401);
+    }
+
 
     public function registerApi(Request $request)
     {
+        Log::info('Register API called', ['request' => $request->all()]);
+
         $request->validate([
             'username' => ['required', 'min:3', 'max:20', Rule::unique('users', 'username')],
             'email' => ['required', 'email', Rule::unique('users', 'email')],
-            'password' => ['required', 'min:5', 'confirmed'],
+            'password' => ['required', 'min:4', 'confirmed'],
         ]);
 
         $incomingFields = $request->only(['username', 'email', 'password']);
@@ -169,27 +202,11 @@ class UserController extends Controller
 
         $user = User::create($incomingFields);
 
-        $token = $user->createToken('appToken')->plainTextToken;
+        $token = $user->createToken('ourapptoken')->plainTextToken;
+
+        Log::info('User registered successfully', ['user_id' => $user->id]);
 
         return response()->json(['message' => 'User registered successfully', 'token' => $token, 'user' => new UserResource($user)], 201);
-    }
-
-    public function loginApi(Request $request)
-    {
-        $incomingFields = $request->validate([
-            'username' => 'required',
-            'password' => 'required'
-        ]);
-
-        if (auth()->attempt($incomingFields)) {
-            // Explicitly fetch the user based on the username
-            $user = User::where('username', $incomingFields['username'])->firstOrFail();
-            $token = $user->createToken('ourapptoken')->plainTextToken;
-
-            return response()->json(['token' => $token, 'user' => new UserResource($user)]);
-        }
-
-        return response()->json(['message' => 'Unauthorized'], 401);
     }
 
 
