@@ -26,7 +26,7 @@ class User extends Authenticatable
 
     protected function avatar(): Attribute
     {
-        return Attribute::make(get: fn ($value) => $value ?? '/fallback-avatar.jpg');
+        return Attribute::make(get: fn ($value) => $value ?? 'https://res.cloudinary.com/drbz4rq7y/image/upload/v1710780821/avatarPlaceholder_q7fqff.jpg');
     }
 
     /**
