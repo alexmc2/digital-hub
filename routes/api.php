@@ -55,7 +55,7 @@ Route::post('register', RegisterController::class);
 // Protected routes requiring authentication
 Route::middleware('auth:sanctum')->group(function () {
     // Actions requiring the user to be logged in
-    // Route::post('/logout', [UserController::class, 'logoutApi']);
+    Route::post('/logout', [UserController::class, 'logoutApi']);
     Route::post('/manage-avatar', [UserController::class, 'storeAvatarApi']);
 
     // Posting related routes

@@ -40,16 +40,22 @@ class LoginController extends Controller
         return response()->json(['message' => 'Unauthorized'], 401);
     }
 
+
     /**
-     * @return JsonResponse
+     * Revoke the token that was used to authenticate the current request.
+     * 
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function logout(): JsonResponse
+    public function logout(Request $request)
     {
-        $user = auth()->user();
+        // Revoke the token that was used to authenticate the current request...
+        $request->user()->currentAccessToken()->delete();
 
-        $user->tokens()->delete();
+        // Alternatively, if you want to log out from all devices by revoking all tokens:
+        // $request->user()->tokens()->delete();
 
-        return $this->success([], AuthConstants::LOGOUT);
+        return response()->json(['message' => 'Successfully logged out']);
     }
 
     /**
