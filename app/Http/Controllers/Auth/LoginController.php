@@ -43,18 +43,18 @@ class LoginController extends Controller
     /**
      * @return JsonResponse
      */
-    // public function logout(): JsonResponse
-    // {
-    //     $user = auth()->user();
+    public function logout(): JsonResponse
+    {
+        $user = auth()->user();
 
-    //     $user->tokens()->delete();
+        $user->tokens()->delete();
 
-    //     return $this->success([], AuthConstants::LOGOUT);
-    // }
+        return $this->success([], AuthConstants::LOGOUT);
+    }
 
-    // /**
-    //  * @return JsonResponse
-    //  */
+    /**
+     * @return JsonResponse
+     */
     public function details(): JsonResponse
     {
         $user = auth()->user();

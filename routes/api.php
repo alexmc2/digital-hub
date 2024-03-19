@@ -69,6 +69,12 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 // Fetch current user details (Protected)
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+
+Route::group(['middleware' => 'api.auth'], function () {
+    Route::get('user', [LoginController::class, 'details']);
+    Route::get('logout', [LoginController::class, 'logout']);
 });
